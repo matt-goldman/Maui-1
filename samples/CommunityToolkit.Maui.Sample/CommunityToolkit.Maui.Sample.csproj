@@ -28,8 +28,7 @@
     <NoWarn>IL2026</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'
-      AND $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'windows'">
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'&#xD;&#xA;      AND $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'windows'">
     <!-- Windows error NETSDK1102: Optimizing assemblies for size is not supported for the selected publish configuration. -->
     <PublishAot>false</PublishAot>
     <PublishTrimmed>true</PublishTrimmed>
@@ -78,6 +77,12 @@
     <ProjectReference Include="..\..\src\CommunityToolkit.Maui.Camera\CommunityToolkit.Maui.Camera.csproj" />
     <ProjectReference Include="..\..\src\CommunityToolkit.Maui\CommunityToolkit.Maui.csproj" />
     <ProjectReference Include="..\..\src\CommunityToolkit.Maui.Maps\CommunityToolkit.Maui.Maps.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="Pages\Views\MediaElement\MediaElementFromStreamPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
   </ItemGroup>
 
   <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)'))=='windows' and $(Configuration) == 'Release'">
