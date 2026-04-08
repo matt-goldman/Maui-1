@@ -538,7 +538,6 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                     return defaultValue;
                 }
 
-
                 [global::System.ThreadStatic]
                 public static bool IsInitializingLetter;
                 public static object CreateDefaultLetter(global::Microsoft.Maui.Controls.BindableObject bindable)
