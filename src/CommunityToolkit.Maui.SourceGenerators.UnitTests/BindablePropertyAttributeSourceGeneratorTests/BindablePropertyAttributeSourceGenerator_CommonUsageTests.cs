@@ -612,7 +612,7 @@ public class BindablePropertyAttributeSourceGenerator_CommonUsageTests : BaseBin
 			{
 			    [global::System.ThreadStatic]
 			    public static bool IsInitializingText;
-				public static object CreateDefaultText(global::Microsoft.Maui.Controls.BindableObject bindable)
+			    public static object CreateDefaultText(global::Microsoft.Maui.Controls.BindableObject bindable)
 			    {
 			        IsInitializingText = true;
 			        var defaultValue = ((TestView)bindable).Text;
@@ -622,7 +622,7 @@ public class BindablePropertyAttributeSourceGenerator_CommonUsageTests : BaseBin
 			
 			    [global::System.ThreadStatic]
 			    public static bool IsInitializingCustomDuration;
-				public static object CreateDefaultCustomDuration(global::Microsoft.Maui.Controls.BindableObject bindable)
+			    public static object CreateDefaultCustomDuration(global::Microsoft.Maui.Controls.BindableObject bindable)
 			    {
 			        IsInitializingCustomDuration = true;
 			        var defaultValue = ((TestView)bindable).CustomDuration;
