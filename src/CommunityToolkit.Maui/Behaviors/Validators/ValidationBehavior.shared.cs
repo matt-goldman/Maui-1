@@ -235,8 +235,8 @@ public abstract partial class ValidationBehavior : BaseBehavior<VisualElement>, 
 	{
 		// try
 		// {
-		// 	var validationBehavior = (ValidationBehavior)bindable;
-		// 	await validationBehavior.UpdateStateAsync(validationBehavior.View, validationBehavior.Flags, false);
+			var validationBehavior = (ValidationBehavior)bindable;
+			await validationBehavior.UpdateStateAsync(validationBehavior.View, validationBehavior.Flags, false);
 		// }
 		// catch (Exception ex)
 		// {
@@ -244,8 +244,8 @@ public abstract partial class ValidationBehavior : BaseBehavior<VisualElement>, 
 		// }
 
 		// Temporarily reverting to original behaviour to validate removal of ConfiugreAwait(false) as well as ThredStatic in source generator
-		var validationBehavior = (ValidationBehavior)bindable;
-		await validationBehavior.UpdateStateAsync(validationBehavior.View, validationBehavior.Flags, false).ConfigureAwait(false);
+		// var validationBehavior = (ValidationBehavior)bindable;
+		// await validationBehavior.UpdateStateAsync(validationBehavior.View, validationBehavior.Flags, false).ConfigureAwait(false);
 	}
 
 	static void OnIsValidPropertyChanged(BindableObject bindable, object oldValue, object newValue)
