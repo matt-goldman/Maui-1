@@ -168,8 +168,7 @@ public class BindablePropertyAttributeSourceGenerator_IntegrationTests : BaseBin
 		    [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
 		    private static class __{{defaultTestClassName}}BindablePropertyInitHelpers
 		    {
-		        [global::System.ThreadStatic]
-		        public static bool IsInitializingValue;
+		        public static volatile bool IsInitializingValue = false;
 		        public static object CreateDefaultValue(global::Microsoft.Maui.Controls.BindableObject bindable)
 		        {
 		            IsInitializingValue = true;

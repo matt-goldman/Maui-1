@@ -590,6 +590,7 @@ public class BindablePropertyAttributeSourceGenerator : IIncrementalGenerator
 		}
 	}
 
+#region original AppendHelperDefaultValueMethod for reference
 	/// <summary>
 	/// Appends the initializing flag into the file-static helper class.
 	/// </summary>
@@ -597,13 +598,11 @@ public class BindablePropertyAttributeSourceGenerator : IIncrementalGenerator
 	/// <param name="info">Property model.</param>
 	static void AppendHelperInitializingField(StringBuilder fileStaticClassStringBuilder, in BindablePropertyModel info)
 	{
-		// Use [ThreadStatic] so each thread has its own flag, preventing cross-thread
-		// interference when multiple instances resolve default values concurrently.
-		fileStaticClassStringBuilder.Append("[global::System.ThreadStatic]\npublic static bool ")
+		// Make the flag public static so it can be referenced from the generated partial class in the same file.
+		fileStaticClassStringBuilder.Append("public static volatile bool ")
 			.Append(info.InitializingPropertyName)
-			.Append(";\n");
+			.Append(" = false;\n");
 	}
-#region original AppendHelperDefaultValueMethod for reference
 	/// <summary>
 	/// Appends a default value creator method into the file-static helper class.
 	/// The method sets the static initializing flag, reads the property's initializer value by casting the bindable
@@ -635,6 +634,19 @@ public class BindablePropertyAttributeSourceGenerator : IIncrementalGenerator
 #endregion
 
 #region revised AppendHelperDefaultValueMethod with try/finally for thread safety
+	/// <summary>
+	/// Appends the initializing flag into the file-static helper class.
+	/// </summary>
+	/// <param name="fileStaticClassStringBuilder">Helper StringBuilder used to collect helper members.</param>
+	/// <param name="info">Property model.</param>
+	// static void AppendHelperInitializingField(StringBuilder fileStaticClassStringBuilder, in BindablePropertyModel info)
+	// {
+	// 	// Use [ThreadStatic] so each thread has its own flag, preventing cross-thread
+	// 	// interference when multiple instances resolve default values concurrently.
+	// 	fileStaticClassStringBuilder.Append("[global::System.ThreadStatic]\npublic static bool ")
+	// 		.Append(info.InitializingPropertyName)
+	// 		.Append(";\n");
+	// }
 	/// <summary>
 	/// Appends a default value creator method into the file-static helper class.
 	/// The method sets the thread-static initializing flag, reads the property's initializer value by casting the bindable

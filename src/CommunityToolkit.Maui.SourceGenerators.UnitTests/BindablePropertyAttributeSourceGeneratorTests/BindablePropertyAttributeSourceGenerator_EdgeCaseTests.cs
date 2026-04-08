@@ -100,8 +100,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
 
             file static class __{{defaultTestClassName}}BindablePropertyInitHelpers
             {
-                [global::System.ThreadStatic]
-                public static bool IsInitializingInvoiceStatus;
+                public static volatile bool IsInitializingInvoiceStatus = false;
                 public static object CreateDefaultInvoiceStatus(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingInvoiceStatus = true;
@@ -161,8 +160,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
 
             file static class __{{defaultTestClassName}}BindablePropertyInitHelpers
             {
-                [global::System.ThreadStatic]
-                public static bool IsInitializingInvoiceStatus;
+                public static volatile bool IsInitializingInvoiceStatus = false;
                 public static object CreateDefaultInvoiceStatus(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingInvoiceStatus = true;
@@ -518,8 +516,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
 
             file static class __{{defaultTestClassName}}BindablePropertyInitHelpers
             {
-                [global::System.ThreadStatic]
-                public static bool IsInitializingIsEnabled;
+                public static volatile bool IsInitializingIsEnabled = false;
                 public static object CreateDefaultIsEnabled(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingIsEnabled = true;
@@ -528,8 +525,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                     return defaultValue;
                 }
 
-                [global::System.ThreadStatic]
-                public static bool IsInitializingPi;
+                public static volatile bool IsInitializingPi = false;
                 public static object CreateDefaultPi(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingPi = true;
@@ -538,8 +534,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                     return defaultValue;
                 }
 
-                [global::System.ThreadStatic]
-                public static bool IsInitializingLetter;
+                public static volatile bool IsInitializingLetter = false;
                 public static object CreateDefaultLetter(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingLetter = true;
@@ -548,8 +543,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                     return defaultValue;
                 }
 
-                [global::System.ThreadStatic]
-                public static bool IsInitializingTimeSpent;
+                public static volatile bool IsInitializingTimeSpent = false;
                 public static object CreateDefaultTimeSpent(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingTimeSpent = true;
@@ -558,8 +552,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                     return defaultValue;
                 }
 
-                [global::System.ThreadStatic]
-                public static bool IsInitializingDoubleEpsilon;
+                public static volatile bool IsInitializingDoubleEpsilon = false;
                 public static object CreateDefaultDoubleEpsilon(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingDoubleEpsilon = true;
@@ -568,8 +561,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                     return defaultValue;
                 }
 
-                [global::System.ThreadStatic]
-                public static bool IsInitializingSingleEpsilon;
+                public static volatile bool IsInitializingSingleEpsilon = false;
                 public static object CreateDefaultSingleEpsilon(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingSingleEpsilon = true;
@@ -578,8 +570,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                     return defaultValue;
                 }
 
-                [global::System.ThreadStatic]
-                public static bool IsInitializingCurrentTime;
+                public static volatile bool IsInitializingCurrentTime = false;
                 public static object CreateDefaultCurrentTime(global::Microsoft.Maui.Controls.BindableObject bindable)
                 {
                     IsInitializingCurrentTime = true;
@@ -699,8 +690,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
 
 			file static class __{{defaultTestClassName}}BindablePropertyInitHelpers
 			{
-			    [global::System.ThreadStatic]
-			    public static bool IsInitializingText;
+			    public static volatile bool IsInitializingText = false;
 			    public static object CreateDefaultText(global::Microsoft.Maui.Controls.BindableObject bindable)
 			    {
 			        IsInitializingText = true;
@@ -709,8 +699,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
 			        return defaultValue;
 			    }
 
-			    [global::System.ThreadStatic]
-			    public static bool IsInitializingTime;
+			    public static volatile bool IsInitializingTime = false;
 			    public static object CreateDefaultTime(global::Microsoft.Maui.Controls.BindableObject bindable)
 			    {
 			        IsInitializingTime = true;
@@ -719,8 +708,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
 			        return defaultValue;
 			    }
 			
-			    [global::System.ThreadStatic]
-			    public static bool IsInitializingCustomDuration;
+			    public static volatile bool IsInitializingCustomDuration = false;
 			    public static object CreateDefaultCustomDuration(global::Microsoft.Maui.Controls.BindableObject bindable)
 			    {
 			        IsInitializingCustomDuration = true;
