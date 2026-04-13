@@ -94,7 +94,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                 /// <summary>
                 /// BindableProperty for the <see cref = "InvoiceStatus"/> property.
                 /// </summary>
-                public static readonly global::Microsoft.Maui.Controls.BindableProperty InvoiceStatusProperty = global::Microsoft.Maui.Controls.BindableProperty.Create("InvoiceStatus", typeof(TestNamespace.Status), typeof({{defaultTestNamespace}}.{{defaultTestClassName}}), (global::TestNamespace.Status)1, (Microsoft.Maui.Controls.BindingMode)0, null, null, null, null, null);
+                public static readonly global::Microsoft.Maui.Controls.BindableProperty InvoiceStatusProperty = global::Microsoft.Maui.Controls.BindableProperty.Create("InvoiceStatus", typeof(TestNamespace.Status), typeof({{defaultTestNamespace}}.{{defaultTestClassName}}), global::TestNamespace.Status.Approved, (Microsoft.Maui.Controls.BindingMode)0, null, null, null, null, null);
                 public partial TestNamespace.Status InvoiceStatus { get => false ? field : (TestNamespace.Status)GetValue(InvoiceStatusProperty); set => SetValue(InvoiceStatusProperty, value); }
             }
             """;
@@ -142,7 +142,7 @@ public class BindablePropertyAttributeSourceGenerator_EdgeCaseTests : BaseBindab
                 /// <summary>
                 /// BindableProperty for the <see cref = "InvoiceStatus"/> property.
                 /// </summary>
-                public static readonly global::Microsoft.Maui.Controls.BindableProperty InvoiceStatusProperty = global::Microsoft.Maui.Controls.BindableProperty.Create("InvoiceStatus", typeof(TestNamespace.Status), typeof({{defaultTestNamespace}}.{{defaultTestClassName}}), (global::TestNamespace.Status)9223372036854775807L, (Microsoft.Maui.Controls.BindingMode)0, null, null, null, null, null);
+                public static readonly global::Microsoft.Maui.Controls.BindableProperty InvoiceStatusProperty = global::Microsoft.Maui.Controls.BindableProperty.Create("InvoiceStatus", typeof(TestNamespace.Status), typeof({{defaultTestNamespace}}.{{defaultTestClassName}}), global::TestNamespace.Status.Rejected, (Microsoft.Maui.Controls.BindingMode)0, null, null, null, null, null);
                 public partial TestNamespace.Status InvoiceStatus { get => false ? field : (TestNamespace.Status)GetValue(InvoiceStatusProperty); set => SetValue(InvoiceStatusProperty, value); }
             }
             """;
