@@ -590,6 +590,7 @@ public class BindablePropertyAttributeSourceGenerator : IIncrementalGenerator
 		}
 	}
 
+#region original AppendHelperDefaultValueMethod for reference
 	/// <summary>
 	/// Appends the initializing flag into the file-static helper class.
 	/// </summary>
@@ -602,7 +603,6 @@ public class BindablePropertyAttributeSourceGenerator : IIncrementalGenerator
 			.Append(info.InitializingPropertyName)
 			.Append(" = false;\n");
 	}
-
 	/// <summary>
 	/// Appends a default value creator method into the file-static helper class.
 	/// The method sets the static initializing flag, reads the property's initializer value by casting the bindable
@@ -631,4 +631,52 @@ public class BindablePropertyAttributeSourceGenerator : IIncrementalGenerator
 			.Append("return defaultValue;\n")
 			.Append("}\n\n");
 	}
+#endregion
+
+#region revised AppendHelperDefaultValueMethod with try/finally for thread safety
+	/// <summary>
+	/// Appends the initializing flag into the file-static helper class.
+	/// </summary>
+	/// <param name="fileStaticClassStringBuilder">Helper StringBuilder used to collect helper members.</param>
+	/// <param name="info">Property model.</param>
+	// static void AppendHelperInitializingField(StringBuilder fileStaticClassStringBuilder, in BindablePropertyModel info)
+	// {
+	// 	// Use [ThreadStatic] so each thread has its own flag, preventing cross-thread
+	// 	// interference when multiple instances resolve default values concurrently.
+	// 	fileStaticClassStringBuilder.Append("[global::System.ThreadStatic]\npublic static bool ")
+	// 		.Append(info.InitializingPropertyName)
+	// 		.Append(";\n");
+	// }
+	/// <summary>
+	/// Appends a default value creator method into the file-static helper class.
+	/// The method sets the thread-static initializing flag, reads the property's initializer value by casting the bindable
+	/// to the declaring type, then clears the flag and returns the value.
+	/// </summary>
+	/// <param name="fileStaticClassStringBuilder">Helper StringBuilder used to collect helper members.</param>
+	/// <param name="info">Property model.</param>
+	/// <param name="fullDeclaringType">Declaring type including containing types and generic parameters.</param>
+	// static void AppendHelperDefaultValueMethod(StringBuilder fileStaticClassStringBuilder, in BindablePropertyModel info, string fullDeclaringType)
+	// {
+	// 	var sanitizedPropertyName = IsDotnetKeyword(info.PropertyName) ? string.Concat("@", info.PropertyName) : info.PropertyName;
+
+	// 	fileStaticClassStringBuilder.Append("public static object ")
+	// 		.Append(info.EffectiveDefaultValueCreatorMethodName)
+	// 		.Append("(global::Microsoft.Maui.Controls.BindableObject bindable)\n")
+	// 		.Append("{\n")
+	// 		.Append(info.InitializingPropertyName)
+	// 		.Append(" = true;\n")
+	// 		.Append("try\n{\n")
+	// 		.Append("var defaultValue = ((")
+	// 		.Append(fullDeclaringType)
+	// 		.Append(")bindable).")
+	// 		.Append(sanitizedPropertyName)
+	// 		.Append(";\n")
+	// 		.Append("return defaultValue;\n")
+	// 		.Append("}\nfinally\n{\n")
+	// 		.Append(info.InitializingPropertyName)
+	// 		.Append(" = false;\n")
+	// 		.Append("}\n")
+	// 		.Append("}\n\n");
+	// }
+#endregion
 }
